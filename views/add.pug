@@ -1,0 +1,15 @@
+extend layout.pug
+
+block content
+    h1 Add new task
+
+    form(method ='POST' action='/create-task')
+        label Short Name
+        br
+        input(type ='text' name='short_name')
+        br
+        label Full Description
+        br
+        input(type ='text' name='description')
+        br
+        button(type='submit') Create
