@@ -1,0 +1,31 @@
+{
+  "name": "web-tech-cw2",
+  "version": "1.0.0",
+  "description": "Final CW from Web Technology module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BIS00009734/Web-tech-cw2.git"
+  },
+  "keywords": [
+    "js",
+    "express",
+    "pug",
+    "cw"
+  ],
+  "author": "00009734",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BIS00009734/Web-tech-cw2/issues"
+  },
+  "homepage": "https://github.com/BIS00009734/Web-tech-cw2#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "pub": "^0.2.0",
+    "pug": "^3.0.0"
+  }
+}
