@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const fs = require('fs')
 
-const listTasks = require('./routes/task-list')
+const listTasks = require('./routes/tasks')
 const addNew = require('./routes/add')
 
 const dbPath = path.join(__dirname, 'data/data.json')

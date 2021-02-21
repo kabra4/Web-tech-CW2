@@ -16,5 +16,18 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+    const id = req.params.id
+
+    fs.readFile(dbPath, (err, data) =>{
+        if (err) res.sendStatus(500)
+
+        const tasks = JSON.parse(data)
+
+        const task = tasks.filter(val => val.id == id)[0]
+
+        res.render('a_task', { value: task})
+    })
+})
 
 module.exports = router
