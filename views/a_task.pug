@@ -1,0 +1,49 @@
+extend layout.pug
+
+block content
+    h1= value.name
+    p= value.description 
+    p#deadline= value.date
+    p#timeLeft
+    .task-commands
+        button(class='commands' id='editBtn') Edit
+        button(class='commands' id='putOff') Put Off
+        form(method ='POST' action=`/tasks/${value.id}/delete`)
+            button(type='submit' class='commands' id='delete') Delete
+    
+    .delay 
+        form(method ='POST' action=`/tasks/${value.id}/putOff` id='putOffForm')
+            p How much is task delayed?
+            label(for='days') Days:
+            input(type="number" name="days" min="0" value='1' oninput="validity.valid||(value='');")
+            br
+            label(for='hours') hours:
+            input(type="number" name="test_name" min="0" value='0' oninput="validity.valid||(value='');")
+            br
+            button(type='submit') Put Off!!!
+    
+    .edit
+        form(method ='POST' action=`/tasks/${value.id}/edit` id='editForm')
+            label(for='name') New Name
+            br
+            input(type ='text' name='name' value=`${value.name}` required)
+            br
+            label(for='description') Full Description
+            br
+            input(type ='text' name='description' value=`${value.name}`)
+            br
+            label(for='deadlineD') Deadline
+            br
+            input(type ='date'
+                name='date'
+                value= date
+                min= date
+                max="2030-12-30"
+                required)
+
+            input(type="time" name="time" value='00:00' required)
+            button(type='submit') Edit!!!
+ 
+
+
+    script(src="/scripts/a_task.js") 

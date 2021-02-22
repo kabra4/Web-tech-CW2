@@ -18,10 +18,14 @@ router.post('/create-task', (req, res) => {
 
         tasks.push({
             id:  uniqueID(),
-            name: req.body.short_name,
+            name: req.body.name,
             description: req.body.description,
             date: ''.concat(req.body.date, ' ', req.body.time)
         })
+
+        tasks.sort((a, b) =>
+            date.parse(a.date, 'YYYY-MM-DD HH:mm') - date.parse(b.date, 'YYYY-MM-DD HH:mm')
+        )
 
         fs.writeFile(dbPath, JSON.stringify(tasks), (err) => {
             if (err) res.sendStatus(500)

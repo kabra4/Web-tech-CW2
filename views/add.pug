@@ -4,13 +4,13 @@ block content
     h1 Add new task
 
     form(method ='POST' action='/add/create-task')
-        label(for='short_name') Short Name
+        label(for='name') Name
         br
-        input(type ='text' name='short_name' required)
+        input(type ='text' name='name' required)
         br
         label(for='description') Full Description
         br
-        input(type ='text' name='description' required)
+        input(type ='text' name='description')
         br
         label(for='deadlineD') Deadline
         br
@@ -21,6 +21,6 @@ block content
             max="2030-12-30"
             required)
 
-        input(type="time" name="time" required)
+        input(type="time" name="time" value='00:00' required)
 
         button(type='submit') Create
