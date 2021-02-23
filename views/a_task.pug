@@ -11,14 +11,14 @@ block content
         form(method ='POST' action=`/tasks/${value.id}/delete`)
             button(type='submit' class='commands' id='delete') Delete
     
-    .delay 
+    .putOffBox
         form(method ='POST' action=`/tasks/${value.id}/putOff` id='putOffForm')
             p How much is task delayed?
             label(for='days') Days:
             input(type="number" name="days" min="0" value='1' oninput="validity.valid||(value='');")
             br
             label(for='hours') hours:
-            input(type="number" name="test_name" min="0" value='0' oninput="validity.valid||(value='');")
+            input(type="number" name="hours" min="0" value='0' oninput="validity.valid||(value='');")
             br
             button(type='submit') Put Off!!!
     
@@ -30,14 +30,14 @@ block content
             br
             label(for='description') Full Description
             br
-            input(type ='text' name='description' value=`${value.name}`)
+            input(type ='text' name='description' value=`${value.description}`)
             br
             label(for='deadlineD') Deadline
             br
             input(type ='date'
                 name='date'
-                value= date
-                min= date
+                value= value.date
+                min= value.date
                 max="2030-12-30"
                 required)
 

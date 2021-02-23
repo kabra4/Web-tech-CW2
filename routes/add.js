@@ -30,7 +30,7 @@ router.post('/create-task', (req, res) => {
         fs.writeFile(dbPath, JSON.stringify(tasks), (err) => {
             if (err) res.sendStatus(500)
 
-            res.redirect('/')
+            res.redirect('/tasks')
         })
     })
 })

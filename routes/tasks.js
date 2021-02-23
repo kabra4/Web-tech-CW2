@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const fs = require('fs')
 const path = require('path')
-
+const date = require('date-and-time');
 
 const dbPath = path.join(__dirname, '../data/data.json')
 
@@ -38,13 +38,18 @@ router.post('/:id/:action', (req, res) => {
         if (err) res.sendStatus(500)
 
         const tasks = JSON.parse(data)
-        const taskId = findId(tasks, id)
+        var taskId;
+        for (i = 0; i < tasks.length; i++){
+            if (tasks[i]["id"] == id){
+                taskId = i;
+            }
+        }
 
         switch (action){
             case 'putOff':
-                let taskDate = date.parse(tasks[taskId]['date'], 'YYYY-MM-DD HH:mm')
-                taskDate = date.addDays(taskDate, req.body.days)
-                taskDate = date.addHours(taskDate, req.body.hours)
+                var taskDate = date.parse(tasks[taskId]['date'], 'YYYY-MM-DD HH:mm')
+                taskDate = date.addDays(taskDate, parseInt(req.body.days))
+                taskDate = date.addHours(taskDate, parseInt(req.body.hours))
                 tasks[taskId]['date'] = date.format(taskDate, 'YYYY-MM-DD HH:mm')
                 break
 
@@ -75,12 +80,5 @@ router.post('/:id/:action', (req, res) => {
     })
 })
 
-function findId(array, id) {
-    for (i = 0; i < array.length; i++){
-        if (array[i]["id"] == id){
-            return i;
-        }
-    }
-}
 
 module.exports = router
