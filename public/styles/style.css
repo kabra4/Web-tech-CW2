@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Kiwi Maru', serif;
+    text-decoration: none;
     font-size: 16px;
+    font-weight: 400;
     line-height: 1.5em;
 }
 
@@ -12,13 +16,14 @@ body {
     min-height: 100vh;
 }
 
+/* nav */
 nav {
     width: 100%;
     border-top: 3px solid #1e99fd;
     box-shadow: 1px 2px 2px #bdbdbd;
 }
 nav .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
 }
@@ -37,6 +42,7 @@ nav h2 {
 }
 
 nav ul {
+    justify-self: right;
     height: 50px;
     list-style: none;
     margin-left: 20px;
@@ -58,6 +64,8 @@ nav a:hover{
     border-bottom: 3px solid rgb(54, 135, 255);
 }
 
+/* footer */
+
 footer {
     width: 100%;
     height: 70px;
@@ -67,19 +75,23 @@ footer {
     bottom: 0;
 }
 footer .container {
-    max-width: 800px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
     margin: 0 auto;
+    justify-content: space-around;
+    align-content: baseline;
 }
 footer ul {
-    height: 50px;
+    display: inline-block;
+    height: 30px;
     list-style: none;
-    margin-left: 20px;
+    margin: 0 auto;
 }
 
 footer li {
     display: inline-block;
-    margin: 15px 10px 7px 10px;
+    margin: 10px;
 }
 
 footer a{
@@ -87,11 +99,204 @@ footer a{
     text-decoration: none;
     color: rgb(212, 212, 212);
     font-weight: 500;
-    padding: 3px 5px;
 }
 footer a:hover{
     color: rgb(253, 255, 255);
 }
+
+footer p{
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* home page */
+main.home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+    font-weight: 300;
+}
+
+main.home p {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.create-task-btn {
+    padding: 10px 20px;
+    background: #3d41ec;
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    margin-top: 20px;
+    display: inline-block;
+    font-family: inherit;
+}
+
+/* add Task */
+.addTask {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.addTask h1 {
+    margin-bottom: 30px;
+}
+
+.addTask #name {
+    width: 50%;
+    display: block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.addTask #description {
+    width: 50%;
+    display: block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.addTask #deadlineD {
+    margin-right: 20px;
+}
+.addTask button {
+    margin-left: 20px;
+}
+
+/* task List */
+.taskList,
+.oneTask{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 80px;
+}
+
+.tasks {
+    list-style: none;
+    max-width: 700px;
+}
+
+.tasks > li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-left: 5px solid #3ad400;
+    border-right: 5px solid #3ad400;
+}
+
+.tasks > li:hover {
+    background: #f8f8f8;
+}
+
+.tasks > li .taskName {
+    font-weight: 500;
+    width: 200px;
+}
+
+.tasks > li p {
+    width: 200px;
+}
+
+/* one Task */
+
+.oneTask h1{
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+
+.oneTask #taskDescription,
+.oneTask #deadline,
+.oneTask #timeLeft{
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.oneTask .deadTitle {
+    margin-top: 5px;
+    display: inline-block;
+    font-size: 1.2rem;
+}
+
+.oneTask .putOffbtn {
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    border: 0;
+    background: #ffaf58;
+    color: #000;
+    padding: 5px 10px;
+}
+#putOffForm {
+    padding: 10px;
+    border-left: 1px solid black;
+}
+#putOffForm label {
+    display: inline-block;
+    width: 70px;
+    margin: 5px;
+}
+#putOffForm input {
+    width: 100px;
+    margin: 5px;
+}
+
+
+/* utils */
+.success,
+.error {
+    padding: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.error {
+    background: #ffeaea;
+    border: 1px solid #660e0e;
+    color: #660e0e;
+}
+
+.success {
+    background: #cefdcc;
+    border: 1px solid #0e661a;
+    color: #0e661a;
+}
+
+.form-title {
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+form label {
+    margin: 10px 0;
+}
+
+.empty {
+    font-size: 1.5rem;
+}
+
+.delete-task, .commands {
+    border-radius: 5px;
+    font-size: 0.8rem;
+    background: tomato;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+
 
 .oneTask #putOffForm {
     display: none;

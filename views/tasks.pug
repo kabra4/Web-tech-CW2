@@ -8,7 +8,10 @@ block content
             ul.tasks
                 each task in value
                     li(class='task-item' id=task.date)
-                        a(href=`tasks/${task.id}`)= task.name
+                        a(href=`tasks/${task.id}` class='taskName')= task.name
+                        p Deadline in:
                         a.delete-task(href=`tasks/${task.id}/delete`) Delete
         else
             p.empty No any task yet
+
+    script(src="/scripts/taskList.js")

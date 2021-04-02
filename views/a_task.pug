@@ -2,13 +2,15 @@ extend layout.pug
 
 block content
     main.oneTask
-        h1= value.name
-        p= value.description
+        h1.taskName= value.name
+        p#taskDescription= value.description
+        p.deadTitle Deadline:
         p#deadline= value.date
+        p.deadTitle Time Left:
         p#timeLeft
         #task-commands
-            button(type='button' class='commands' id='putOff') Put Off
-            a(class='commands' id='delete' href=`/tasks/${value.id}/delete`) Delete
+            button(type='button' class='putOffbtn' id='putOff') Put Off
+            a(class='delete-task' id='delete' href=`/tasks/${value.id}/delete`) Delete
 
         form(method ='POST' action=`/tasks/${value.id}/putOff` id='putOffForm')
             p How much is task delayed?
@@ -18,7 +20,7 @@ block content
             label(for='hours') hours:
             input(id='hours' type="number" name="hours" min="0" value='0' oninput="validity.valid||(value='');")
             br
-            button(type='submit') Put Off!!!
+            button(type='submit' class='putOffbtn') Put Off!!!
 
 
         script(src="/scripts/a_task.js")
