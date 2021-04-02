@@ -21,8 +21,11 @@ var x = setInterval(function() {
 
 }, 1000);
 
-document.getElementById("putOff").onclick = function() {putOffClick()}
-
-function putOffClick() {
-    document.getElementById("dropPutOff").classList.toggle('show');
+document.getElementById("putOff").onclick = () => {
+  var x = document.getElementById("putOffForm");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 }

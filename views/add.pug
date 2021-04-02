@@ -1,26 +1,34 @@
 extend layout.pug
 
 block content
-    h1 Add new task
+    main.addTask
+        h1 Add new task
 
-    form(method ='POST' action='/add/create-task')
-        label(for='name') Name
-        br
-        input(type ='text' name='name' required)
-        br
-        label(for='description') Full Description
-        br
-        input(type ='text' name='description')
-        br
-        label(for='deadlineD') Deadline
-        br
-        input(type ='date'
-            name='date'
-            value= date
-            min= date
-            max="2030-12-30"
-            required)
+        if success
+            p.success Task was added successfully
 
-        input(type="time" name="time" value='00:00' required)
+        if error
+            p.error Please add task (name & date) before submitting
 
-        button(type='submit') Create
+        form(method ='POST' action='/add/create-task')
+            label(for='name') Name
+            br
+            input(id='name' type ='text' name='name' required)
+            br
+            label(for='description') Full Description
+            br
+            input(id='description' type ='text' name='description')
+            br
+            label(for='deadlineD') Deadline
+            br
+            input(id='deadlineD'
+                type ='date'
+                name='date'
+                value= date
+                min= date
+                max="2030-12-30"
+                required)
+
+            input(type="time" name="time" value='00:00' required)
+
+            button(type='submit') Create

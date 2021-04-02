@@ -1,8 +1,14 @@
 extend layout.pug
 
 block content
-    h1 Task list
+    main.taskList
+        h1 Task list
 
-    each item in value
-        a(href=`tasks/${ item.id }`)= item.name
-        br
+        if value.length
+            ul.tasks
+                each task in value
+                    li(class='task-item' id=task.date)
+                        a(href=`tasks/${task.id}`)= task.name
+                        a.delete-task(href=`tasks/${task.id}/delete`) Delete
+        else
+            p.empty No any task yet

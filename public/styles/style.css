@@ -92,3 +92,7 @@ footer a{
 footer a:hover{
     color: rgb(253, 255, 255);
 }
+
+.oneTask #putOffForm {
+    display: none;
+}
