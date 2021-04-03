@@ -180,7 +180,8 @@ main.home p {
 
 .tasks {
     list-style: none;
-    max-width: 700px;
+    max-width: 800px;
+    margin: auto;
 }
 
 .tasks > li {
