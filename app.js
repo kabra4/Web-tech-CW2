@@ -14,13 +14,11 @@ app.use(bodyParser.urlencoded({ extended : false }))
 app.use('/tasks', listTasks)
 app.use('/add', addNew)
 
-var port = process.env.PORT || 8080;
+let port = process.env.PORT || 8080;
 
-app.listen(port, (err) => {
-    if (err) throw err
-
-    console.log(`Server is running on ${port}`)
-})
+let listener = app.listen(process.env.PORT, function () {
+    console.log('Your app is listening on port ' + listener.address().port);
+});
 
 app.all('/', (req, res, next) => {
     console.log(`Incoming Request - ${req.method}`)
