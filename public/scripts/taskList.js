@@ -10,7 +10,7 @@ function colorTaskList() {
         let days = Math.round((countDownDate - now) / (1000 * 60 * 60 * 24));
         let hours = Math.round((countDownDate - now) / (1000 * 60 * 60));
         let borColor, deadline, bgColor;
-        if (days < 0){
+        if (countDownDate - now < 0){
             borColor = '#f00'
             bgColor = '#ffdfdf'
             deadline = 'Passed'
