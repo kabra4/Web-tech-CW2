@@ -20,9 +20,9 @@ After installation, you need to install **dependencies**
     * date-and-time
     * body-parser
     
-Open command line in project folder and type
+Open command line in project folder and type to install all dependencies
 ```bash
-npm install express date-and-time pug body-parser
+npm install 
 ```
 
 In order to run app, use 
